@@ -1,4 +1,4 @@
-package aula01;
+package introjava;
 
 public class AulaIntrodutoria {
 

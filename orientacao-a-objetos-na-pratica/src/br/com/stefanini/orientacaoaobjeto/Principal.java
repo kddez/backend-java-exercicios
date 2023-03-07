@@ -1,5 +1,6 @@
 package br.com.stefanini.orientacaoaobjeto;
 
+
 public class Principal {
 
 		public static void main(String[] args) {
@@ -29,6 +30,9 @@ public class Principal {
 			Carro[] carros = new Carro[] { bmwDois, tesla, teslaDois};
 			
 			for (Carro carro : carros) {
+				if (Constantes.MARCA_FAMOSA.equals(carro.getMarca())){
+					System.out.println("Carro de marca famosa");
+				}
 				if (carro instanceof Tesla) {
 					System.out.println(((Tesla) teslaDois).isDirigeSozinho());
 				}

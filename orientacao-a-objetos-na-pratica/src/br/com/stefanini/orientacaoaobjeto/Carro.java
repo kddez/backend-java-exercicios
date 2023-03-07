@@ -1,6 +1,6 @@
 package br.com.stefanini.orientacaoaobjeto;
 
-public class Carro {
+public abstract class Carro {
 
 		private String marca;
 		private String modelo;
@@ -27,6 +27,8 @@ public class Carro {
 			System.out.println("Freando...");
 		}
 		
+		public abstract void piscarAlerta();
+
 		public double calcularTaxaAceleracao(double velocidadeFinal, double velocidadeInicial, double tempoFinal, double tempoInicial) {
 			return (velocidadeFinal - velocidadeInicial) / (tempoFinal - tempoInicial)*3.6 ;
 		}
@@ -54,8 +56,13 @@ public class Carro {
 			return velocidadeMaxima;
 		}
 
-		public void setVelocidadeMaxima(int velocidadeMaxima) {
-			this.velocidadeMaxima = velocidadeMaxima;
+		public void setVelocidadeMaxima(int velocidadeMaxima) throws NegocioException{
+			if (velocidadeMaxima<0){
+				throw new NegocioException("Velocidade Inválida");
+				
+			}else{
+				this.velocidadeMaxima = velocidadeMaxima;
+			}
 		}
 
 		public int getTaxaAceleracao() {
